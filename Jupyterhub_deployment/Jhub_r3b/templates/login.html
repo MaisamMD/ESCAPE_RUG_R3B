@@ -1,0 +1,115 @@
+{% extends "templates/login.html" %}
+{% block login %}
+<div class='container branding'>
+<img
+src='https://www.rug.nl/about-ug/practical-matters/huisstijl/huisstijl-basiselementen/images/rugr_logoen_rood_rgb-web.png' style="width:20%; height:20%">
+<h1> </h1>
+<img
+src='https://projectescape.eu/sites/default/files/logo-Escape_0.png' style="width:20%; height:20%">
+<br>
+<br>
+
+</div>
+<html>
+<head>
+<style>
+h3 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+
+<p>Analysis notebooks for:</p>
+<h3>NeuLAND detector @ R3B experiment</h3>
+<br>
+<br>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<img
+src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' style="width:4%; height:4%">
+</body>
+
+{{ super() }}
+
+<footer class='navbar-default'>
+    <p> This JupyterHub service is provided as a use case for the project ESCAPE
+			(European Science Cluster of Astronomy & Particle physics ESFRI research infrastructures).
+			For more information please visit <a href="https://projectescape.eu/" target="_blank">projectescape.eu</a>.</p>
+</footer>
+
+{% endblock %}
+
+{% block stylesheet %}
+{{ super() }}
+<style>
+.branding img {
+    display: block;
+    width: 350px;
+    /* top right bottom left */
+    margin: 0 auto 0 auto;
+}
+
+#login-main .auth-form-body {
+    border-color: rgb(0, 124, 186);
+    color: white;
+}
+
+#login-main {
+    margin-top: 1%;
+    height: 100%;
+}
+
+footer {
+    border-top: 1px solid silver;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+footer p{
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+#login-main form {
+    vertical-align: top;
+}
+
+#login-main .auth-form-header {
+    color: white;
+    background: rgb(219, 170, 0);
+    border: 1px solid;
+    border-color: rgb(0, 124, 186);
+}
+
+#insecure-login-warning {
+    color: black;
+}
+
+.btn-jupyter.active, .btn-jupyter:active, .open>.dropdown-toggle.btn-jupyter {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #a88400;
+    border-color: #a88400;
+    outline-color: #a88400;
+}
+
+#login-main .form-control:focus, #login-main input[type=submit]:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(219, 170, 0);
+    border-color: rgb(219, 170, 0);
+    outline-color: rgb(219, 170, 0);
+}
+
+.btn-jupyter {
+    color: #fff;
+    background-color: rgb(219, 170, 0);
+    border-color: rgb(219, 170, 0);
+}
+
+</style>
+{% endblock %}

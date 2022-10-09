@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  jhub:
+    image: jupyterhub:latest
+    container_name: jupyterhub_IAM
+    ports:
+      - 443:8000
+    env_file:
+      - .env
+    networks:
+      - jupyterhub
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py"
+      - "./ssl:/srv/jupyterhub/ssl"
+
+networks:
+  jupyterhub:
+    name: jupyterhub

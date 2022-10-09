@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  reverse_proxy:
+    image: nginx:latest
+    container_name: reverse_proxy
+    depends_on:
+      - jhub
+    ports:
+      - 80:80
+    volumes:
+      - "./nginx_config/nginx.conf:/etc/nginx/nginx.conf"
+      - "./ssl:/etc/nginx/ssl"
+    networks:
+      - jhubnginx
+
+  jhub:
+    image: jupyterhub:latest
+    container_name: jhub_proxy
+    ports:
+      - 8000:8000
+    networks:
+      - jhubnginx
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py"
+networks:
+  jhubnginx:
+    name: jhubnginx

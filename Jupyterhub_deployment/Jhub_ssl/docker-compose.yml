@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  jhub:
+    image: jupyterhub:latest
+    container_name: jhub_ssl
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    networks:
+      - jhubssl
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py"
+      - "./ssl:/srv/jupyterhub/ssl"
+networks:
+  jhubssl:
+    name: jhubssl
